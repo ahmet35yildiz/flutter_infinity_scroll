@@ -29,8 +29,8 @@ class PokemonBloc extends Bloc<GetPokemonListEvent, PokemonState> {
       emit (PokemonLoading());
 
       final response = await _pokemonRepository.loadPokemonList(itemCounter: event.itemCounter, offset: event.offset);
-   //   newPokemons.addAll(response);
-      emit(PokemonSuccess(response));
+      newPokemons.addAll(response);
+      emit(PokemonSuccess(newPokemons));
     }catch (e,stackTrace){
       emit(PokemonError());
       print("hata: $e");

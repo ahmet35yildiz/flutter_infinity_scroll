@@ -21,8 +21,8 @@ class _HomePageState extends State<HomePage> {
     injector<PokemonBloc>().add(const GetPokemonList(itemCounter: "10", offset: "0"));
     scrollController.addListener(() {
       if (scrollController.offset == scrollController.position.maxScrollExtent) {
-      //  offset += 10;
-        limit += 10;
+        offset += 10;
+      //  limit += 10;
         injector<PokemonBloc>().add(GetMorePokemon(itemCounter: limit.toString(), offset: offset.toString()));
       }
     });
